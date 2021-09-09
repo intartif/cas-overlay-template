@@ -1,15 +1,12 @@
 #!/bin/bash
 
-docker_user="$1"
-docker_psw="$2"
+read -p "Docker username: " docker_user
+read -s -p "Docker password: " docker_psw
+
 echo "$docker_psw" | docker login --username "$docker_user" --password-stdin
 
-imageTag="$3"
-if [ -z "$imageTag" ]; then
-  version=(`cat gradle.properties | grep "cas.version" | cut -d= -f2`)
-  imageTag="v$version" 
-fi
+image_tag=(`cat gradle.properties | grep "cas.version" | cut -d= -f2`)
 
-echo "Pushing CAS docker image tagged as $imageTag to apereo/cas..."
-docker push apereo/cas:"$imageTag" \
-  && echo "Pushed apereo/cas:$imageTag successfully.";
+echo "Pushing CAS docker image tagged as v$image_tag to apereo/cas..."
+docker push apereo/cas:"v$image_tag" \
+	&& echo "Pushed apereo/cas:v$image_tag successfully.";
