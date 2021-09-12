@@ -37,12 +37,15 @@ def explodedResourcesDir = "${buildDir}/cas-resources"
 def resourcesJarName = "cas-server-webapp-resources"
 def templateViewsJarName = "cas-server-support-thymeleaf"
 
-task copyCasConfiguration(type: Copy, group: "CAS", description: "Copy the CAS configuration from this project to /etc/cas/config and /etc/cas/services") {
+task copyCasConfiguration(type: Copy, group: "CAS", description: "Copy the CAS configuration from this project to c:/etc/cas/config") {
     from "etc/cas/config"
     into new File('c:/etc/cas/config').absolutePath
     doFirst {
         new File('c:/etc/cas/config').mkdirs()
     }
+}
+
+task copyCasService(type: Copy, group: "CAS", description: "Copy the CAS configuration from this project to c:/etc/cas/services") {
     from "etc/cas/services"
     into new File('c:/etc/cas/services').absolutePath
     doFirst {

@@ -1,0 +1,8 @@
+{
+  "@class":"org.apereo.cas.support.oauth.services.OAuthRegisteredService",
+  "clientId":"client",
+  "serviceId":"^(https?|http?)://.*",
+  "name":"oauth",
+  "id":1,
+  "bypassApprovalPrompt": false
+}

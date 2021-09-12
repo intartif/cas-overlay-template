@@ -16,6 +16,10 @@ buildscript {
             url "https://plugins.gradle.org/m2/" 
             mavenContent { releasesOnly() }
         }
+        maven {
+        	url "https://mvnrepository.com"
+        	mavenContent { releasesOnly() }
+        }
     }
     dependencies {
         classpath "de.undercouch:gradle-download-task:${project.gradleDownloadTaskVersion}"
@@ -50,6 +54,10 @@ repositories {
         mavenContent { snapshotsOnly() }
         url "https://oss.jfrog.org/artifactory/oss-snapshot-local" 
     }
+    maven {
+    	mavenContent { releasesOnly() }
+    	url "https://mvnrepository.com"
+    }
 }
 
 def casServerVersion = project.'cas.version'
@@ -73,7 +81,12 @@ dependencies {
     // Other CAS dependencies/modules may be listed here...
     implementation "org.apereo.cas:cas-server-support-json-service-registry:${casServerVersion}"
     implementation "org.apereo.cas:cas-server-support-rest-authentication:${casServerVersion}"
-    // implementation "org.jasig.cas:cas-server-support-pac4j-webflow:${casServerVersion}"
+    implementation "org.apereo.cas:cas-server-support-generic:${casServerVersion}"
+    // implementation "org.apereo.cas:cas-server-support-token-webflow:${casServerVersion}"
+    implementation "org.apereo.cas:cas-server-support-oauth-webflow:${casServerVersion}"
+    // implementation "org.apereo.cas:cas-server-support-oidc:${casServerVersion}"
+    // implementation "org.apereo.cas:cas-server-support-oauth-webflow:${casServerVersion}"
+    // implementation "org.apereo.cas:cas-server-support-oauth-webflow:${casServerVersion}"
 }
 
 tasks.findByName("jibDockerBuild")
