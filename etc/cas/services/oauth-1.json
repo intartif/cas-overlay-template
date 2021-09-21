@@ -1,8 +1,8 @@
 {
-  "@class":"org.apereo.cas.support.oauth.services.OAuthRegisteredService",
-  "clientId":"client",
-  "serviceId":"^(https?|http?)://.*",
-  "name":"oauth",
-  "id":1,
-  "bypassApprovalPrompt": false
+  "@class": "org.apereo.cas.services.OidcRegisteredService",
+  "clientId": "client",
+  "serviceId": "^http://localhost:8080.*",
+  "name": "OIDC",
+  "id": 1,
+  "scopes" : [ "java.util.HashSet", [ "profile", "openid" ] ]
 }
