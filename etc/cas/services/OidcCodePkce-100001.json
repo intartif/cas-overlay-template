@@ -1,0 +1,8 @@
+{
+  "@class": "org.apereo.cas.services.OidcRegisteredService",
+  "clientId": "client",
+  "serviceId": "^http://localhost:4200/dashboard",
+  "name": "OIDC",
+  "id": 1,
+  "scopes" : [ "java.util.HashSet", [ "profile", "openid" ] ]
+}
